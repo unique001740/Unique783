@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Create an Account</h2>
+    <form id="signupForm">
+      <input type="email" id="newEmail" placeholder="Gmail" required />
+      <input type="password" id="newPassword" placeholder="Password" required />
+      <button type="submit">Sign Up</button>
+      <p id="signupMsg" class="error-msg"></p>
+    </form>
+  </div>
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("newEmail").value;
+      const password = document.getElementById("newPassword").value;
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userPassword", password);
+      document.getElementById("signupMsg").textContent = "Account created. Go to login.";
+    });
+  </script>
+</body>
+</html>
